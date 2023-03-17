@@ -1,0 +1,67 @@
+&model
+    model_type = 'EVOL'
+    file = 'fgong.l5bi.d.15c'
+    file_format = 'FGONG'
+    data_format = '(1P5E16.9,x)'
+/
+
+&constants
+/
+
+&mode
+    l=0
+/
+
+&mode
+    l=1
+/
+
+&mode
+    l=2
+/
+
+&mode
+    l=3
+/
+
+&osc
+    outer_bound = 'JCD'
+    variables_set = 'JCD'
+    reduce_order = .false.
+/
+
+&num
+    diff_scheme = 'MAGNUS_GL6' !'COLLOC_GL2'
+/
+
+&scan
+    grid_type = 'INVERSE'
+    freq_min_units = 'UHZ'
+    freq_max_units = 'UHZ'
+    freq_min = 50
+    freq_max = 1500
+    n_freq = 1000
+/
+
+&grid
+    w_osc = 5
+    w_exp = 10
+    w_ctr = 5
+/
+
+&rot
+/
+
+&ad_output
+    summary_file = 'longperiod.dat'
+    summary_file_format = 'TXT'
+    summary_item_list = 'l,n_pg,n_p,n_g,freq,E_norm'
+    freq_units = 'UHZ'
+    detail_file_format = 'TXT'
+    detail_template = 'modes/%l_%p_%g'
+    detail_item_list = 'l,n_pg,omega,freq,x,xi_r,xi_h,eul_phi'
+/
+
+&nad_output
+/
+
